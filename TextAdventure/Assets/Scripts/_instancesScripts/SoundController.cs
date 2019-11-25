@@ -6,6 +6,8 @@ public class SoundController : MonoBehaviour
 {
     bool is_enabled = true;
 
+    #region INSTANCE
+
     private static SoundController _instance;
     public static SoundController instance()
     {
@@ -29,6 +31,8 @@ public class SoundController : MonoBehaviour
 
         return _instance;
     }
+
+    #endregion
 
     public void setEnabled(bool value)
     {
