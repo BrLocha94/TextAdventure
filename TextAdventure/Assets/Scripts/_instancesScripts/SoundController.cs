@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class SoundController : MonoBehaviour
 {
+    [SerializeField]
+    private AudioSource sourceBackground;
+    [SerializeField]
+    private AudioSource sourceSfx;
+
+    [SerializeField]
+    private AudioClip[] backgroundAudios;
+
+    [SerializeField]
+    private AudioClip[] sfxAudios;
+
     bool is_enabled = true;
 
     #region INSTANCE
@@ -34,6 +45,8 @@ public class SoundController : MonoBehaviour
 
     #endregion
 
+    #region Gets and Sets
+
     public void setEnabled(bool value)
     {
         _instance.is_enabled = value;
@@ -48,4 +61,6 @@ public class SoundController : MonoBehaviour
     {
         return _instance.is_enabled;
     }
+
+    #endregion
 }

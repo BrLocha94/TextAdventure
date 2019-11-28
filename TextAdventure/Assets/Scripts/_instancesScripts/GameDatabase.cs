@@ -7,6 +7,8 @@ public class GameDatabase : MonoBehaviour
 {
     GameData gameData;
 
+    int actualScore = 0;
+
     #region INSTANCE
 
     private static GameDatabase _instance;
@@ -37,7 +39,34 @@ public class GameDatabase : MonoBehaviour
 
     void Start ()
     {
+        Initializer();
         //ReadDataOnStreamingAssets();
+    }
+
+    void Initializer()
+    {
+        _instance.gameData = new GameData();
+        WriteDataOnStreamingAssets();
+    }
+
+    public void AddNode(Node node)
+    {
+        _instance.gameData.AddNode(node);
+    }
+
+    public void RemoveNode(Node node)
+    {
+        _instance.gameData.RemoveNode(node);
+    }
+
+    public void AddScore(int score)
+    {
+        _instance.actualScore += score;
+    }
+
+    public void RemoveScore(int score)
+    {
+        _instance.actualScore -= score;
     }
 
     #region IO READER AND WRITER
@@ -75,6 +104,20 @@ public class GameDatabase : MonoBehaviour
         }
         else
             Debug.Log("File not found, can't write game data");
+    }
+
+    #endregion
+
+    #region Gets And Sets
+
+    public void SetActualScore(int score)
+    {
+        _instance.actualScore = score;
+    }
+
+    public int GetActualScore()
+    {
+        return _instance.actualScore;
     }
 
     #endregion
