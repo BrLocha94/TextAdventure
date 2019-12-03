@@ -46,5 +46,23 @@ public class GameData
         }
         return null;
     }
-    
+
+    public void SetInitialNode(Node node)
+    {
+        if (nodeList != null)
+        {
+            if (nodeList.Count > 0)
+            {
+                List<Node> newList = new List<Node>();
+                newList.Add(node);
+                for(int i = 0; i < nodeList.Count; i++)
+                {
+                    if (nodeList[i] != node)
+                        newList.Add(nodeList[i]);
+                }
+            }
+            else
+                nodeList.Add(node);
+        }
+    }
 }
