@@ -8,6 +8,7 @@ public class GameDatabase : MonoBehaviour
     GameData gameData;
 
     int actualScore = 0;
+    int currentNode = 0;
 
     #region INSTANCE
 
@@ -69,6 +70,26 @@ public class GameDatabase : MonoBehaviour
         _instance.actualScore -= score;
     }
 
+    public void AdvanceNode()
+    {
+        _instance.currentNode++;
+        if(_instance.currentNode >= _instance.gameData.nodeList.Count)
+        {
+            Debug.Log("Cant advance node because out off bounds");
+            _instance.currentNode--;
+        }
+    }
+
+    public void BackNode()
+    {
+        _instance.currentNode--;
+        if (_instance.currentNode <= 0)
+        {
+            Debug.Log("Cant back node because out off bounds");
+            _instance.currentNode++;
+        }
+    }
+
     #region IO READER AND WRITER
 
     void ReadDataOnStreamingAssets()
@@ -109,6 +130,42 @@ public class GameDatabase : MonoBehaviour
     #endregion
 
     #region Gets And Sets
+
+    public Node GetCurrentNode()
+    {
+        if(_instance.gameData.nodeList.Count > 0)
+        {
+            if(_instance.currentNode < _instance.gameData.nodeList.Count)
+            {
+                return _instance.gameData.nodeList[_instance.currentNode];
+            }
+            else
+            {
+                Debug.Log("Current node is out off bounds");
+                return null;
+            }
+        }
+        else
+        {
+            Debug.Log("There is no node in game data list");
+            return null;
+        }
+    }
+
+    public void SetCurrentNodeIndex(int index)
+    {
+        if (index > -1 && index < _instance.gameData.nodeList.Count)
+        {
+            _instance.currentNode = index;
+        }
+        else
+            Debug.Log("Cant set node because out off bounds");
+    }
+
+    public int GetCurrentNodeIndex()
+    {
+        return _instance.currentNode;
+    }
 
     public void SetActualScore(int score)
     {
