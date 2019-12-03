@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Manager : MonoBehaviour
 {
-    SoundController soundController;
-    SceneController sceneController;
-    GameDatabase gameDatabase;
+    //SoundController soundController;
+    //SceneController sceneController;
+    //GameDatabase gameDatabase;
 
 	void Start ()
     {
-        soundController = SoundController.instance();
-        sceneController = SceneController.instance();
-        gameDatabase = GameDatabase.instance();
+        SoundController.instance();
+        SceneController.instance();
+        GameDatabase.instance();
 	}
 }
