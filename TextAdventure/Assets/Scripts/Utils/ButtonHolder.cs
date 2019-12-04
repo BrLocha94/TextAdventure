@@ -30,7 +30,19 @@ public class ButtonHolder : MonoBehaviour
         time = 0f;
     }
 
-    public void OutTransition()
+    public void OutTransition(float transitionTime)
+    {
+        StartCoroutine(OutTransitionRoutine(transitionTime));
+    }
+
+    IEnumerator OutTransitionRoutine(float transitionTime)
+    {
+        yield return new WaitForSeconds(transitionTime);
+
+        OutTransition();
+    }
+
+    private void OutTransition()
     {
         gameObject.GetComponent<CanvasGroup>().interactable = false;
         gameObject.GetComponent<CanvasGroup>().blocksRaycasts = false;
