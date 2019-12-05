@@ -50,6 +50,16 @@ public class Node
 
     #region Gets and Sets
 
+    public List<Interacteble> GetListInteractions()
+    {
+        return possibleInteractions;
+    }
+
+    public List<Action> GetListActions()
+    {
+        return possibleActions;
+    }
+
     public void SetDescription(string newDescription)
     {
         description = newDescription;
