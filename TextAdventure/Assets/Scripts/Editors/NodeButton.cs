@@ -33,4 +33,29 @@ public class NodeButton : MonoBehaviour, ButtonEditor
     {
         return type;
     }
+
+    public void SetController(EditorController editorController)
+    {
+        controller = editorController;
+    }
+
+    public void SetNode(Node nodeReference)
+    {
+        node = nodeReference;
+    }
+
+    public Node GetNode()
+    {
+        return node;
+    }
+
+    public void SetIndex(int newIndex)
+    {
+        index = newIndex;
+
+    }
+    public int GetIndex()
+    {
+        return index;
+    }
 }

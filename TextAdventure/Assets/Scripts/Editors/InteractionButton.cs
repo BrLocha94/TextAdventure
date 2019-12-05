@@ -38,4 +38,49 @@ public class InteractionButton : MonoBehaviour, ButtonEditor
     {
         return type;
     }
+
+    public void SetController(EditorController editorController)
+    {
+        controller = editorController;
+    }
+
+    public void SetParentNode(Node newParentNode)
+    {
+        parentNode = newParentNode;
+
+    }
+    public Node GetParentNode()
+    {
+        return parentNode;
+    }
+
+    public void SetParentIndex(int newParentIndex)
+    {
+        parentIndex = newParentIndex;
+
+    }
+    public int GetParentIndex()
+    {
+        return parentIndex;
+    }
+
+    public void SetInteraction(Interacteble newInteractable)
+    {
+        interaction = newInteractable;
+    }
+
+    public Interacteble GetInteraction()
+    {
+        return interaction;
+    }
+
+    public void SetIndex(int newIndex)
+    {
+        index = newIndex;
+
+    }
+    public int GetIndex()
+    {
+        return index;
+    }
 }
