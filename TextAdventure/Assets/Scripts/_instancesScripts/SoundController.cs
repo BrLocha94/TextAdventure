@@ -45,6 +45,27 @@ public class SoundController : MonoBehaviour
 
     #endregion
 
+    public void PlayOpenBackground()
+    {
+        _instance.sourceBackground.clip = backgroundAudios[0];
+
+        _instance.sourceBackground.Play();
+    }
+
+    public void PlayGameBackground()
+    {
+        _instance.sourceBackground.clip = backgroundAudios[1];
+
+        _instance.sourceBackground.Play();
+    }
+
+    public void PlayButtonSFX()
+    {
+        _instance.sourceSfx.clip = sfxAudios[0];
+
+        _instance.sourceSfx.Play();
+    }
+
     #region Gets and Sets
 
     public void setEnabled(bool value)

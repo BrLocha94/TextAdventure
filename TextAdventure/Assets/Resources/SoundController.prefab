@@ -111,7 +111,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1a99d6af796d0e8469882a9bd34b52a4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.652
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -276,4 +276,4 @@ MonoBehaviour:
   backgroundAudios:
   - {fileID: 8300000, guid: 1a99d6af796d0e8469882a9bd34b52a4, type: 3}
   sfxAudios:
-  - {fileID: 8300000, guid: 622df6012652bdb498c7ec99b1b8a532, type: 3}
+  - {fileID: 8300000, guid: 047e62c25503f7b4080e1bcee570264c, type: 3}
