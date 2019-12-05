@@ -13,6 +13,9 @@ public class EditorController : MonoBehaviour
     [SerializeField]
     private GameObject panelAction;
 
+    [SerializeField]
+    private GameObject[] screens;
+
     List<Node> listNodes;
     List<Interacteble> listInteractions;
     List<Action> listActions;
