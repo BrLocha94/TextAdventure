@@ -1,5 +1,7 @@
 ﻿
 public interface Interacteble
 {
-    void Interact();
+    string Interact();
+
+    Trigger HasEventAssociated();
 }
