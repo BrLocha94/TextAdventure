@@ -7,6 +7,7 @@ public class Manager : MonoBehaviour
     //SoundController soundController;
     //SceneController sceneController;
     //GameDatabase gameDatabase;
+    //
 
 	void Start ()
     {
