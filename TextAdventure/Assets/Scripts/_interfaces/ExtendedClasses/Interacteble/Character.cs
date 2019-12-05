@@ -4,11 +4,22 @@ using UnityEngine;
 
 public class Character : MonoBehaviour, Interacteble
 {
-    private List<string> dialogSequence = new List<string>();
-    private int currentDialog = 0;
+    private InteractebleType type;
 
-    private Trigger associatedEvent = null;
-    private bool retrievedEvent = false;
+    private List<string> dialogSequence;
+    private int currentDialog;
+
+    private Trigger associatedEvent;
+    private bool retrievedEvent;
+
+    public Character()
+    {
+        type = InteractebleType.CHARACTER;
+        dialogSequence = new List<string>();
+        currentDialog = 0;
+        associatedEvent = null;
+        retrievedEvent = false;
+    }
 
     #region Interface Methods
 
@@ -31,6 +42,11 @@ public class Character : MonoBehaviour, Interacteble
             return associatedEvent;
         else
             return null;
+    }
+
+    public InteractebleType GetInteractableType()
+    {
+        return type;
     }
 
     #endregion

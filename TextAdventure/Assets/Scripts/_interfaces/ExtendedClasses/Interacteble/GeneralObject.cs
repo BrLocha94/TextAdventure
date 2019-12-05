@@ -4,11 +4,22 @@ using UnityEngine;
 
 public class GeneralObject : MonoBehaviour, Interacteble
 {
-    private string associatedDialog = "";
-    private string emptyDialog = "";
+    private InteractebleType type;
 
-    private Trigger associatedEvent = null;
-    private bool retrievedEvent = false;
+    private string associatedDialog;
+    private string emptyDialog;
+
+    private Trigger associatedEvent;
+    private bool retrievedEvent;
+
+    public GeneralObject()
+    {
+        type = InteractebleType.OBJECT;
+        associatedDialog = "";
+        emptyDialog = "";
+        associatedEvent = null;
+        retrievedEvent = false;
+    }
 
     #region Interface Methods
 
@@ -29,6 +40,11 @@ public class GeneralObject : MonoBehaviour, Interacteble
         }
         else
             return null;
+    }
+
+    public InteractebleType GetInteractableType()
+    {
+        return type;
     }
 
     #endregion
