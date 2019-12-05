@@ -35,11 +35,13 @@ public class SceneController : MonoBehaviour
 
     public void LoadOpen()
     {
+        SoundController.instance().PlayOpenBackground();
         SceneManager.LoadScene("Open", LoadSceneMode.Single);
     }
 
     public void LoadGame()
     {
+        SoundController.instance().PlayGameBackground();
         SceneManager.LoadScene("Game", LoadSceneMode.Single);
     }
 
