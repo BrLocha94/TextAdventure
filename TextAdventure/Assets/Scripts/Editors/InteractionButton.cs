@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractionButton : ButtonEditor
+public class InteractionButton : MonoBehaviour, ButtonEditor
 {
+    private EditorController controller;
+
     private Node parentNode;
     private int parentIndex;
 
@@ -12,13 +14,14 @@ public class InteractionButton : ButtonEditor
 
     private ButtonEditorType type;
 
-    public InteractionButton(Node node, int nodeIndex, Interacteble target, int targetIndex)
+    public InteractionButton(Node node, int nodeIndex, Interacteble target, int targetIndex, EditorController controllerReference)
     {
         parentNode = node;
         parentIndex = nodeIndex;
         interaction = target;
         index = targetIndex;
         type = ButtonEditorType.INTERACTABLE;
+        controller = controllerReference;
     }
 
     public void OnButtonClick()

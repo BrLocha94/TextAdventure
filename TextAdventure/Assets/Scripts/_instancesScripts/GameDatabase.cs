@@ -131,6 +131,11 @@ public class GameDatabase : MonoBehaviour
 
     #region Gets And Sets
 
+    public List<Node> GetNodeList()
+    {
+        return _instance.gameData.nodeList;
+    }
+
     public Node GetCurrentNode()
     {
         if(_instance.gameData.nodeList.Count > 0)
