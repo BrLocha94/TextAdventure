@@ -27,34 +27,47 @@ public class GameController : MonoBehaviour
     Interacteble currentNodeInteractable = null;
     Action currentNodeAction = null;
 
+    private static GameController _instance;
+    public static GameController instance()
+    {
+        if (_instance != null)
+            return _instance;
+
+        _instance = FindObjectOfType<GameController>();
+
+        return _instance;
+    }
+
     void Start ()
     {
-        AssignInterfaces();
+        instance();
 
-        listNodes = GameDatabase.instance().GetNodeList();
+        _instance.AssignInterfaces();
 
-        if (listNodes != null)
-            InitiateGame();
+        _instance.listNodes = GameDatabase.instance().GetNodeList();
+
+        if (_instance.listNodes != null)
+            _instance.InitiateGame();
         else
             Debug.Log("listNodes from GameDatabase is null");
     }
 
     public void CheckInput()
     {
-        currentInputOrder = input.text;
-        input.text = "";
+        _instance.currentInputOrder = input.text;
+        _instance.input.text = "";
 
-        string [] inputList = currentInputOrder.Split(' ');
+        string [] inputList = _instance.currentInputOrder.Split(' ');
 
         if (inputList.Length > 1 && inputList.Length < 4)
         {
             if(inputList.Length == 2)
             {
-                for(int i = 0; i < currentNode.GetListActions().Count; i++)
+                for(int i = 0; i < _instance.currentNode.GetListActions().Count; i++)
                 {
-                    if (inputList[0].Equals(currentNode.GetListActions()[i].GetActionType().ToString()))
+                    if (inputList[0].Equals(_instance.currentNode.GetListActions()[i].GetActionType().ToString()))
                     {
-                        currentNodeAction = currentNode.GetListActions()[i];
+                        _instance.currentNodeAction = _instance.currentNode.GetListActions()[i];
                     }
                 }
             }
@@ -71,55 +84,55 @@ public class GameController : MonoBehaviour
     {
         string adventureTitle = GameDatabase.instance().GetAdventureName();
         
-        for(int i = 0; i < title.Length; i++)
+        for(int i = 0; i < _instance.title.Length; i++)
         {
-            title[i].text = adventureTitle;
+            _instance.title[i].text = adventureTitle;
         }
 
-        currentNode = listNodes[0];
-        gameText.text = currentNode.GetDescription();
+        _instance.currentNode = listNodes[0];
+        _instance.gameText.text = currentNode.GetDescription();
     }
 
     #region PopupMethods
 
     public void PopMenu()
     {
-        block.InTransition();
-        popupMenu.InTransition();
+        _instance.block.InTransition();
+        _instance.popupMenu.InTransition();
     }
 
     public void RetrieveMenu()
     {
-        block.OutTransition();
-        popupMenu.OutTransition();
+        _instance.block.OutTransition();
+        _instance.popupMenu.OutTransition();
     }
 
     public void PopConfirmation()
     {
-        block.InTransition();
-        popupConfirmation.InTransition();
+        _instance.block.InTransition();
+        _instance.popupConfirmation.InTransition();
     }
 
     public void RetrieveConfirmation()
     {
-        block.OutTransition();
-        popupConfirmation.OutTransition();
+        _instance.block.OutTransition();
+        _instance.popupConfirmation.OutTransition();
     }
 
     private void AssignInterfaces()
     {
-        if (blockObject != null)
-            block = blockObject.GetComponent<PopUp>();
+        if (_instance.blockObject != null)
+            _instance.block = _instance.blockObject.GetComponent<PopUp>();
         else
             Debug.Log("Block is not assigned in the inspector");
 
-        if (popupMenuObject != null)
-            popupMenu = popupMenuObject.GetComponent<PopUp>();
+        if (_instance.popupMenuObject != null)
+            _instance.popupMenu = _instance.popupMenuObject.GetComponent<PopUp>();
         else
             Debug.Log("PopUpMenu is not assigned in the inspector");
 
-        if (popupConfirmationObject != null)
-            popupConfirmation = popupConfirmationObject.GetComponent<PopUp>();
+        if (_instance.popupConfirmationObject != null)
+            _instance.popupConfirmation = _instance.popupConfirmationObject.GetComponent<PopUp>();
         else
             Debug.Log("PopUpConfirmation is not assigned in the inspector");
     }

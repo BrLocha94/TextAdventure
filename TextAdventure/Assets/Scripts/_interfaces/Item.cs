@@ -6,5 +6,5 @@ public interface Item
 
     string ExecuteAction(ActionType action);
 
-    List<ActionType> GetUsabilities();
+    List<Action> GetUsabilities();
 }

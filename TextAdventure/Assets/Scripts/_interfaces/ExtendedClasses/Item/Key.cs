@@ -47,7 +47,7 @@ public class Key : MonoBehaviour, Item
         return itemDescription;
     }
 
-    public List<ActionType> GetUsabilities()
+    public List<Action> GetUsabilities()
     {
         return itemUsabilities;
     }
