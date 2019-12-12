@@ -4,7 +4,7 @@ public interface Item
 {
     string GetDescription();
 
-    string ExecuteAction(ActionType action);
+    string ExecuteAction(string action);
 
     List<Action> GetUsabilities();
 

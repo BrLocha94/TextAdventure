@@ -18,13 +18,13 @@ public class Key : MonoBehaviour, Item
         itemUsabilities.Add(new Close());
     }
 
-    public string ExecuteAction(ActionType action)
+    public string ExecuteAction(string action)
     {
         string message = "Não é possivel realizar tal ação com este item";
 
         for (int i = 0; i < itemUsabilities.Count; i++)
         {
-            if (action == itemUsabilities[i].GetActionType())
+            if (action.Equals(itemUsabilities[i].GetActionType().ToString()))
             {
                 Results result = itemUsabilities[i].Execute();
 

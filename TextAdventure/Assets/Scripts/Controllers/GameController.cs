@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
     List<Node> listNodes;
     Node currentNode = null;
     Interacteble currentNodeInteractable = null;
-    Action currentNodeAction = null;
+    Item currentNodeItem = null;
 
     private static GameController _instance;
     public static GameController instance()
@@ -75,16 +75,16 @@ public class GameController : MonoBehaviour
                 {
                     for (int i = 0; i < _instance.currentNode.GetListItens().Count; i++)
                     {
-                        /*
-                        if (inputList[0].Equals(_instance.currentNode.GetListItens()[i].GetListItens().ToString()))
+                        
+                        if (_instance.currentNode.GetListItens()[i].CheckAction(inputList[0]))
                         {
-                            _instance.currentNodeAction = _instance.currentNode.GetListItens()[i];
+                            _instance.currentNodeItem = _instance.currentNode.GetListItens()[i];
                             break;
                         }
-                        */
+                        
                     }
 
-                    if(_instance.currentNodeAction != null)
+                    if(_instance.currentNodeItem != null)
                     {
                         
                     }
