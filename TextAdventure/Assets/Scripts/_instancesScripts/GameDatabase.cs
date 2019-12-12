@@ -182,5 +182,10 @@ public class GameDatabase : MonoBehaviour
         return _instance.actualScore;
     }
 
+    public string GetAdventureName()
+    {
+        return _instance.gameData.adventureName;
+    }
+
     #endregion
 }

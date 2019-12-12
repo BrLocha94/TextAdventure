@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Close : MonoBehaviour, Action
 {
-    private ActionType type = ActionType.CLOSE;
+    private ActionType type = ActionType.Fechar;
 
     int outstandingSucces = 10;
     int successRate = 50;
@@ -27,6 +27,8 @@ public class Close : MonoBehaviour, Action
 
     public Results Execute()
     {
+        Results result = Randomize();
+
         return Randomize();
     }
 

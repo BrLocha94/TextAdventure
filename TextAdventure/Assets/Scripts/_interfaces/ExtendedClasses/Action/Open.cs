@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Open : MonoBehaviour, Action
 {
-    private ActionType type = ActionType.OPEN;
+    private ActionType type = ActionType.Abrir;
 
     int outstandingSucces = 10;
     int successRate = 50;

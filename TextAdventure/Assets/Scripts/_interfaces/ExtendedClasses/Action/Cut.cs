@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Cut : MonoBehaviour, Action
 {
-    private ActionType type = ActionType.CUT;
+    private ActionType type = ActionType.Cortar;
 
     int outstandingSucces = 10;
     int successRate = 50;

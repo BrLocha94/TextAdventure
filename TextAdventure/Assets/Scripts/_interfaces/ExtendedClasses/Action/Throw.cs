@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Throw : MonoBehaviour, Action
 {
-    private ActionType type = ActionType.THROW;
+    private ActionType type = ActionType.Arremessar;
 
     int outstandingSucces = 10;
     int successRate = 50;

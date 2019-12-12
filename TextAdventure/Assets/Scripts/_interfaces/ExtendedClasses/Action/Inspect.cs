@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Inspect : MonoBehaviour, Action
 {
-    private ActionType type = ActionType.INSPECT;
+    private ActionType type = ActionType.Inspecionar;
 
     int outstandingSucces = 10;
     int successRate = 50;

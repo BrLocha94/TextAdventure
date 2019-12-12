@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Pic : MonoBehaviour, Action
 {
-    private ActionType type = ActionType.PIC;
+    private ActionType type = ActionType.Pegar;
 
     int outstandingSucces = 10;
     int successRate = 50;

@@ -18,10 +18,10 @@ public enum Results
 
 public enum ActionType
 {
-    CLOSE,
-    CUT,
-    INSPECT,
-    OPEN,
-    PIC,
-    THROW
+    Fechar,
+    Cortar,
+    Inspecionar,
+    Abrir,
+    Pegar,
+    Arremessar
 }

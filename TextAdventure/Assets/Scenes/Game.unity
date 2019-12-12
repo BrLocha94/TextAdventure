@@ -334,6 +334,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 328a751227a33c44cb3bbfdbfacffa9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  title:
+  - {fileID: 1755014262}
+  - {fileID: 1493419935}
+  gameText: {fileID: 626453088}
+  input: {fileID: 1082529421}
   blockObject: {fileID: 2093074925}
   popupMenuObject: {fileID: 1194885504}
   popupConfirmationObject: {fileID: 381561860}
@@ -1893,7 +1898,7 @@ GameObject:
   - component: {fileID: 626453089}
   - component: {fileID: 626453088}
   m_Layer: 5
-  m_Name: TextGame
+  m_Name: GameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3221,7 +3226,18 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 201326710}
+        m_MethodName: CheckInput
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.InputField+SubmitEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_OnValueChanged:
@@ -4298,7 +4314,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 1625.8502}
+  m_AnchoredPosition: {x: 0, y: 25110.383}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1362987364
