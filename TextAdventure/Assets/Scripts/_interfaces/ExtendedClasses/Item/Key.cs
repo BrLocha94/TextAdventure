@@ -5,17 +5,21 @@ using UnityEngine;
 public class Key : MonoBehaviour, Item
 {
     private string itemDescription;
+    private string itemName;
     private List<Action> itemUsabilities;
 
     public Key()
     {
         itemDescription = "Chave comum";
+        itemName = "chave";
+
+        ActionFactory factory = new ActionFactory();
 
         itemUsabilities = new List<Action>();
-        itemUsabilities.Add(new Pic());
-        itemUsabilities.Add(new Throw());
-        itemUsabilities.Add(new Open());
-        itemUsabilities.Add(new Close());
+        itemUsabilities.Add(factory.instance().Create(ActionType.Pegar));
+        itemUsabilities.Add(factory.instance().Create(ActionType.Arremessar));
+        itemUsabilities.Add(factory.instance().Create(ActionType.Abrir));
+        itemUsabilities.Add(factory.instance().Create(ActionType.Fechar));
     }
 
     public string ExecuteAction(string action)
@@ -35,7 +39,10 @@ public class Key : MonoBehaviour, Item
                 else if (result == Results.FAIL)
                     message = "Mensagem";
                 else
+                {
                     message = "Mensagem";
+                    GameController.instance().GameOver();
+                }
             }
         }
 
@@ -71,5 +78,10 @@ public class Key : MonoBehaviour, Item
     public void SetItemDescription(string description)
     {
         itemDescription = description;
+    }
+
+    public string GetItemName()
+    {
+        return name;
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class GeneralObject : MonoBehaviour, Interacteble
 {
     private InteractebleType type;
+    private string characterName;
 
     private string associatedDialog;
     private string emptyDialog;
@@ -17,6 +18,7 @@ public class GeneralObject : MonoBehaviour, Interacteble
         type = InteractebleType.OBJECT;
         associatedDialog = "";
         emptyDialog = "";
+        characterName = "";
         associatedEvent = null;
         retrievedEvent = false;
     }
@@ -45,6 +47,11 @@ public class GeneralObject : MonoBehaviour, Interacteble
     public InteractebleType GetInteractableType()
     {
         return type;
+    }
+
+    public string GetCharacterName()
+    {
+        return characterName;
     }
 
     #endregion

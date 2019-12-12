@@ -5,6 +5,7 @@ using UnityEngine;
 public class Character : MonoBehaviour, Interacteble
 {
     private InteractebleType type;
+    private string characterName;
 
     private List<string> dialogSequence;
     private int currentDialog;
@@ -15,6 +16,7 @@ public class Character : MonoBehaviour, Interacteble
     public Character()
     {
         type = InteractebleType.CHARACTER;
+        characterName = "";
         dialogSequence = new List<string>();
         currentDialog = 0;
         associatedEvent = null;
@@ -33,7 +35,7 @@ public class Character : MonoBehaviour, Interacteble
         }
         currentDialog = 0;
 
-        return null;
+        return "";
     }
 
     public Trigger HasEventAssociated()
@@ -47,6 +49,11 @@ public class Character : MonoBehaviour, Interacteble
     public InteractebleType GetInteractableType()
     {
         return type;
+    }
+
+    public string GetCharacterName()
+    {
+        return characterName;
     }
 
     #endregion

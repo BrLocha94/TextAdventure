@@ -5,16 +5,21 @@ using UnityEngine;
 public class Knife : MonoBehaviour, Item
 {
     private string itemDescription;
+    private string itemName;
     private List<Action> itemUsabilities;
 
     public Knife()
     {
         itemDescription = "Faca comum";
+        itemName = "faca";
 
         itemUsabilities = new List<Action>();
-        itemUsabilities.Add(new Cut());
-        itemUsabilities.Add(new Pic());
-        itemUsabilities.Add(new Throw());
+
+        ActionFactory factory = new ActionFactory();
+
+        itemUsabilities.Add(factory.instance().Create(ActionType.Cortar));
+        itemUsabilities.Add(factory.instance().Create(ActionType.Pegar));
+        itemUsabilities.Add(factory.instance().Create(ActionType.Arremessar));
     }
 
     public string ExecuteAction(string action)
@@ -34,7 +39,10 @@ public class Knife : MonoBehaviour, Item
                 else if (result == Results.FAIL)
                     message = "Mensagem";
                 else
+                {
                     message = "Mensagem";
+                    GameController.instance().GameOver();
+                }
             }
         }
 
@@ -70,5 +78,10 @@ public class Knife : MonoBehaviour, Item
     public void SetItemDescription(string description)
     {
         itemDescription = description;
+    }
+
+    public string GetItemName()
+    {
+        return name;
     }
 }

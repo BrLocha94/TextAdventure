@@ -6,6 +6,8 @@ public interface Interacteble
     Trigger HasEventAssociated();
 
     InteractebleType GetInteractableType();
+
+    string GetCharacterName();
 }
 
 public enum InteractebleType

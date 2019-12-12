@@ -9,4 +9,6 @@ public interface Item
     List<Action> GetUsabilities();
 
     bool CheckAction(string type);
+
+    string GetItemName();
 }

@@ -5,16 +5,20 @@ using UnityEngine;
 public class Candle : MonoBehaviour, Item
 {
     private string itemDescription;
+    private string itemName;
     private List<Action> itemUsabilities;
 
     public Candle()
     {
         itemDescription = "Vela comum";
+        itemName = "vela";
+
+        ActionFactory factory = new ActionFactory();
 
         itemUsabilities = new List<Action>();
-        itemUsabilities.Add(new Pic());
-        itemUsabilities.Add(new Throw());
-        itemUsabilities.Add(new Inspect());
+        itemUsabilities.Add(factory.instance().Create(ActionType.Pegar));
+        itemUsabilities.Add(factory.instance().Create(ActionType.Arremessar));
+        itemUsabilities.Add(factory.instance().Create(ActionType.Inspecionar));
     }
 
     public string ExecuteAction(string action)
@@ -34,7 +38,10 @@ public class Candle : MonoBehaviour, Item
                 else if (result == Results.FAIL)
                     message = "Mensagem";
                 else
+                {
                     message = "Mensagem";
+                    GameController.instance().GameOver();
+                }
             }
         }
 
@@ -70,5 +77,10 @@ public class Candle : MonoBehaviour, Item
     public void SetItemDescription(string description)
     {
         itemDescription = description;
+    }
+
+    public string GetItemName()
+    {
+        return name;
     }
 }
