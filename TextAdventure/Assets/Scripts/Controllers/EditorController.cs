@@ -27,6 +27,12 @@ public class EditorController : MonoBehaviour
     Node currentNode = null;
     int currentNodeIndex = 0;
 
+    Interacteble currentNodeInteractable = null;
+    int currentNodeInteractableIndex = 0;
+
+    Action currentNodeAction = null;
+    int currentNodeActionIndex = 0;
+
     void Start()
     {
         listNodes = GameDatabase.instance().GetNodeList();
@@ -48,7 +54,10 @@ public class EditorController : MonoBehaviour
         PopulateListNode();
     }
 
-    //public void 
+    public void CreateInteraction(Interacteble interaction)
+    {
+        currentNode.AddInteraction(interaction);
+    }
 
     public void SelectNode(Node node, int index)
     {
