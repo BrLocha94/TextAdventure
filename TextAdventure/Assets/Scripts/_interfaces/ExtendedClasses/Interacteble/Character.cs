@@ -85,6 +85,11 @@ public class Character : MonoBehaviour, Interacteble
         associatedEvent = newEvent;
     }
 
+    public void SetCharacterName(string newName)
+    {
+        characterName = newName;
+    }
+
     #endregion
 }
 

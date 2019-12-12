@@ -47,6 +47,44 @@ public class GameDatabase : MonoBehaviour
     void Initializer()
     {
         _instance.gameData = new GameData();
+
+        _instance.gameData.adventureName = "A volta de Feddie Mercury";
+
+        for (int i = 0; i < 3; i++)
+        {
+            _instance.gameData.AddNode(new Node());
+        }
+
+        _instance.gameData.nodeList[0].SetDescription("Voce está nas Montanhas de Carazu\n" +
+                                                      "A direita temos as Planices do asfalto em todo seu resplendor\n" +
+                                                      "A esquerda o pantano de Mordor surge ao fundo\n" +
+                                                      "Nao há ninguém por perto");
+        _instance.gameData.nodeList[0].SetLeftPath(_instance.gameData.nodeList[2]);
+        _instance.gameData.nodeList[0].SetRightPath(_instance.gameData.nodeList[1]);
+
+        _instance.gameData.nodeList[1].SetDescription("As Planices do asfaltos se estendem por todo o horizonte\n" +
+                                                      "Olhando para trás, é possivel ver as Montanhas de Carazu\n" +
+                                                      "Há um mercador parado no meio da estrada principal");
+        _instance.gameData.nodeList[1].SetBackPath(_instance.gameData.nodeList[0]);
+        Character newCharacter = new Character();
+        newCharacter.SetCharacterName("mercador");
+        newCharacter.AddDialog("EEEEEEEEEEEEEEERRRRRROOOOOOOOOOOOOOO");
+        newCharacter.AddDialog("IRO IRO ERO");
+        newCharacter.AddDialog("ERO");
+        newCharacter.AddDialog("EEEEEEEROOOOOOO");
+        newCharacter.AddDialog("UNDER PRESSUREEEEEEEEEEEEEEEEEE......PUSHING DOWN ON ME");
+
+        _instance.gameData.nodeList[1].AddInteraction(newCharacter);
+
+
+        _instance.gameData.nodeList[2].SetDescription("O Pantano de Mordor é um lugar extremamente sombrio\n" +
+                                                      "A sua direita, a Montanha de Carazu surge ao fundo\n" +
+                                                      "Há uma chave no chao a sua frente");
+        _instance.gameData.nodeList[2].SetRightPath(_instance.gameData.nodeList[0]);
+        Key newKey = new Key();
+        _instance.gameData.nodeList[2].AddItem(newKey);
+
+
         WriteDataOnStreamingAssets();
     }
 

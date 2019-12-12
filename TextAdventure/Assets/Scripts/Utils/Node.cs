@@ -55,6 +55,16 @@ public class Node
         return possibleInteractions;
     }
 
+    public Interacteble GetInteractable(int index)
+    {
+        return possibleInteractions[index];
+    }
+
+    public Item GetItem(int index)
+    {
+        return possibleItems[index];
+    }
+
     public List<Item> GetListItens()
     {
         return possibleItems;

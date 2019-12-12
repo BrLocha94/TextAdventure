@@ -63,7 +63,7 @@ public class GameController : MonoBehaviour
         {
             string[] inputList = _instance.currentInputOrder.Split(' ');
 
-            if (_instance.currentNodeInteractable != null)
+            if (_instance.currentNodeInteractable == null)
             {
                 if (inputList.Length > 1 && inputList.Length < 4)
                 {
@@ -71,7 +71,7 @@ public class GameController : MonoBehaviour
                     {
                         string order = inputList[0] + " " + inputList[1];
 
-                        if (order.Equals("ver descrição"))
+                        if (order.Equals("ver descricao"))
                         {
                             _instance.gameText.text = _instance.currentNode.GetDescription();
                         }
@@ -133,7 +133,8 @@ public class GameController : MonoBehaviour
                         {
                             for (int i = 0; i < _instance.currentNode.GetListInteractions().Count; i++)
                             {
-                                if (inputList[2].Equals(_instance.currentNode.GetListInteractions()[i]))
+                                Debug.Log("AQUI");
+                                if (inputList[2].Equals(_instance.currentNode.GetListInteractions()[i].GetCharacterName()))
                                 {
                                     _instance.currentNodeInteractable = _instance.currentNode.GetListInteractions()[i];
                                     _instance.gameText.text = _instance.currentNodeInteractable.Interact();

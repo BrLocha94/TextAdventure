@@ -33,14 +33,14 @@ public class Key : MonoBehaviour, Item
                 Results result = itemUsabilities[i].Execute();
 
                 if (result == Results.OUTSTANDING)
-                    message = "Mensagem";
+                    message = "VOCE PEGOU ESSA CHAVE BEM DEMAIS COLEGA";
                 else if (result == Results.SUCESS)
-                    message = "Mensagem";
+                    message = "Voce pegou essa chave";
                 else if (result == Results.FAIL)
-                    message = "Mensagem";
+                    message = "Voce nao conseguiu pegar a chave";
                 else
                 {
-                    message = "Mensagem";
+                    message = "A chave explodiu, todo mundo morreu";
                     GameController.instance().GameOver();
                 }
             }
@@ -82,6 +82,6 @@ public class Key : MonoBehaviour, Item
 
     public string GetItemName()
     {
-        return name;
+        return itemName;
     }
 }
