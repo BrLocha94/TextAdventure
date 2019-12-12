@@ -21,12 +21,7 @@ public class NodeButton : MonoBehaviour, ButtonEditor
 
     public void OnButtonClick()
     {
-
-    }
-
-    public void Delete()
-    {
-
+        controller.SelectNode(node, index);
     }
 
     public ButtonEditorType GetButtonEditorType()

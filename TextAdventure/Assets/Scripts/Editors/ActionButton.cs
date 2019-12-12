@@ -29,11 +29,6 @@ public class ActionButton : MonoBehaviour, ButtonEditor
 
     }
 
-    public void Delete()
-    {
-
-    }
-
     public ButtonEditorType GetButtonEditorType()
     {
         return type;

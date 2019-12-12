@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 8
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -39,7 +39,6 @@ RenderSettings:
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
-  m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -55,10 +54,11 @@ LightmapSettings:
     m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
-    serializedVersion: 10
+    serializedVersion: 9
     m_Resolution: 2
     m_BakeResolution: 40
-    m_AtlasSize: 1024
+    m_TextureWidth: 1024
+    m_TextureHeight: 1024
     m_AO: 0
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
@@ -2158,7 +2158,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 961545579}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1578510508}
+        m_MethodName: CreateNode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &961545579
@@ -3824,15 +3835,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonsPrefabs:
-  - {fileID: 1580634193983460, guid: 7c96b02796a114a4dba6c014f3c84260, type: 2}
-  - {fileID: 1656508827228884, guid: d92a1f5c04ba48f4bbaeab0b4010ad9e, type: 2}
   - {fileID: 1597326507588140, guid: 802a6691e8de56b449fbefec55099bf3, type: 2}
+  - {fileID: 1656508827228884, guid: d92a1f5c04ba48f4bbaeab0b4010ad9e, type: 2}
+  - {fileID: 1580634193983460, guid: 7c96b02796a114a4dba6c014f3c84260, type: 2}
   panelNode: {fileID: 1542014854}
   panelInteraction: {fileID: 369037233}
   panelAction: {fileID: 987716062}
   screens:
   - {fileID: 1103504395}
   - {fileID: 685933943}
+  - {fileID: 799847588}
 --- !u!1 &1644652331
 GameObject:
   m_ObjectHideFlags: 0
