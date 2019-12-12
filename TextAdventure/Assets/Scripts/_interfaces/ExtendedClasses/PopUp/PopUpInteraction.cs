@@ -22,10 +22,12 @@ public class PopUpInteraction : MonoBehaviour, PopUp
         gameObject.GetComponent<Lean.Gui.LeanWindow>().TurnOff();
     }
 
+    /*
     public void OpenFirstPanel()
     {
        firstPanel.
 
 
     }
+    */
 }

@@ -63,17 +63,58 @@ public class GameController : MonoBehaviour
         {
             if(inputList.Length == 2)
             {
-                for(int i = 0; i < _instance.currentNode.GetListActions().Count; i++)
+                string order = inputList[0] + " " + inputList[1];
+
+                if (order.Equals("ver descrição"))
                 {
-                    if (inputList[0].Equals(_instance.currentNode.GetListActions()[i].GetActionType().ToString()))
+                    _instance.gameText.text = _instance.currentNode.GetDescription();
+                }
+                else
+                {
+                    for (int i = 0; i < _instance.currentNode.GetListActions().Count; i++)
                     {
-                        _instance.currentNodeAction = _instance.currentNode.GetListActions()[i];
+                        if (inputList[0].Equals(_instance.currentNode.GetListActions()[i].GetActionType().ToString()))
+                        {
+                            _instance.currentNodeAction = _instance.currentNode.GetListActions()[i];
+                        }
                     }
                 }
             }
             else
             {
+                string order = inputList[0] + " " + inputList[1];
 
+                if(order.Equals("ir para"))
+                {
+                    if (inputList[2].Equals("frente"))
+                    {
+                        if (_instance.currentNode.GetFrontPath() != null)
+                            ChangeNode(_instance.currentNode.GetFrontPath());
+                        else
+                            _instance.gameText.text = "Não é possivel ir para frente";
+                    }
+                    else if (inputList[2].Equals("tras"))
+                    {
+                        if (_instance.currentNode.GetBackPath() != null)
+                            ChangeNode(_instance.currentNode.GetBackPath());
+                        else
+                            _instance.gameText.text = "Não é possivel ir para tras";
+                    }
+                    else if (inputList[2].Equals("direita"))
+                    {
+                        if (_instance.currentNode.GetRightPath() != null)
+                            ChangeNode(_instance.currentNode.GetRightPath());
+                        else
+                            _instance.gameText.text = "Não é possivel ir para direita";
+                    }
+                    else if (inputList[2].Equals("esquerda"))
+                    {
+                        if (_instance.currentNode.GetLeftPath() != null)
+                            ChangeNode(_instance.currentNode.GetLeftPath());
+                        else
+                            _instance.gameText.text = "Não é possivel ir para esquerda";
+                    }
+                }
             }
         }
         else
@@ -89,8 +130,14 @@ public class GameController : MonoBehaviour
             _instance.title[i].text = adventureTitle;
         }
 
-        _instance.currentNode = listNodes[0];
-        _instance.gameText.text = currentNode.GetDescription();
+        _instance.currentNode = _instance.listNodes[0];
+        _instance.gameText.text = _instance.currentNode.GetDescription();
+    }
+
+    private void ChangeNode(Node node)
+    {
+        _instance.currentNode = node;
+        _instance.gameText.text = _instance.currentNode.GetDescription();
     }
 
     #region PopupMethods
