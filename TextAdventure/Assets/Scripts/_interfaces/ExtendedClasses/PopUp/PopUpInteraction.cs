@@ -22,12 +22,17 @@ public class PopUpInteraction : MonoBehaviour, PopUp
         gameObject.GetComponent<Lean.Gui.LeanWindow>().TurnOff();
     }
 
-    /*
     public void OpenFirstPanel()
     {
-       firstPanel.
-
+        firstPanel.SetActive(true);
+        secondPanel.SetActive(false);
 
     }
-    */
+
+    public void OpenSecondPanel()
+    {
+        secondPanel.SetActive(true);
+        firstPanel.SetActive(false);
+    }
+
 }
