@@ -17,7 +17,7 @@ public class Node
     private string description;
 
     private List<Interacteble> possibleInteractions;
-    private List<Action> possibleActions;
+    private List<Item> possibleItems;
 
     public Node()
     {
@@ -25,7 +25,7 @@ public class Node
         description = "empty";
 
         possibleInteractions = new List<Interacteble>();
-        possibleActions = new List<Action>();
+        possibleItems = new List<Item>();
     }
 
     public void AddInteraction(Interacteble newInteraction)
@@ -38,14 +38,14 @@ public class Node
         possibleInteractions.RemoveAt(index);
     }
 
-    public void AddAction(Action newAction)
+    public void AddItem(Item newItem)
     {
-        possibleActions.Add(newAction);
+        possibleItems.Add(newItem);
     }
 
-    public void RemoveAction(int index)
+    public void RemoveItem(int index)
     {
-        possibleActions.RemoveAt(index);
+        possibleItems.RemoveAt(index);
     }
 
     #region Gets and Sets
@@ -55,9 +55,9 @@ public class Node
         return possibleInteractions;
     }
 
-    public List<Action> GetListActions()
+    public List<Item> GetListItens()
     {
-        return possibleActions;
+        return possibleItems;
     }
 
     public void SetDescription(string newDescription)

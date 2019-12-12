@@ -59,9 +59,11 @@ public class GameController : MonoBehaviour
 
         string [] inputList = _instance.currentInputOrder.Split(' ');
 
+        //if()
+
         if (inputList.Length > 1 && inputList.Length < 4)
         {
-            if(inputList.Length == 2)
+            if (inputList.Length == 2)
             {
                 string order = inputList[0] + " " + inputList[1];
 
@@ -71,12 +73,20 @@ public class GameController : MonoBehaviour
                 }
                 else
                 {
-                    for (int i = 0; i < _instance.currentNode.GetListActions().Count; i++)
+                    for (int i = 0; i < _instance.currentNode.GetListItens().Count; i++)
                     {
-                        if (inputList[0].Equals(_instance.currentNode.GetListActions()[i].GetActionType().ToString()))
+                        /*
+                        if (inputList[0].Equals(_instance.currentNode.GetListItens()[i].GetListItens().ToString()))
                         {
-                            _instance.currentNodeAction = _instance.currentNode.GetListActions()[i];
+                            _instance.currentNodeAction = _instance.currentNode.GetListItens()[i];
+                            break;
                         }
+                        */
+                    }
+
+                    if(_instance.currentNodeAction != null)
+                    {
+                        
                     }
                 }
             }
@@ -84,7 +94,7 @@ public class GameController : MonoBehaviour
             {
                 string order = inputList[0] + " " + inputList[1];
 
-                if(order.Equals("ir para"))
+                if (order.Equals("ir para"))
                 {
                     if (inputList[2].Equals("frente"))
                     {
@@ -114,6 +124,10 @@ public class GameController : MonoBehaviour
                         else
                             _instance.gameText.text = "Não é possivel ir para esquerda";
                     }
+                }
+                else if (order.Equals("falar com"))
+                {
+
                 }
             }
         }

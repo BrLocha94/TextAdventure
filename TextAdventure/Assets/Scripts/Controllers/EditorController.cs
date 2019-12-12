@@ -5,7 +5,7 @@ using UnityEngine;
 public class EditorController : MonoBehaviour
 {
     [SerializeField]
-    private GameObject[] buttonsPrefabs; //ORDER: NODE, INTERACTION, ACTION 
+    private GameObject[] buttonsPrefabs; //ORDER: NODE, INTERACTION, ITEN 
     [SerializeField]
     private GameObject panelNode;
     [SerializeField]
@@ -18,11 +18,11 @@ public class EditorController : MonoBehaviour
 
     List<Node> listNodes;
     List<Interacteble> listInteractions;
-    List<Action> listActions;
+    List<Item> listItens;
 
     List<GameObject> nodeButtonList;
     List<GameObject> interactionButtonList;
-    List<GameObject> actionButtonList;
+    List<GameObject> itenButtonList;
 
     Node currentNode = null;
     int currentNodeIndex = 0;
@@ -30,18 +30,18 @@ public class EditorController : MonoBehaviour
     Interacteble currentNodeInteractable = null;
     int currentNodeInteractableIndex = 0;
 
-    Action currentNodeAction = null;
+    Item currentNodeItem = null;
     int currentNodeActionIndex = 0;
 
     void Start()
     {
         listNodes = GameDatabase.instance().GetNodeList();
         listInteractions = new List<Interacteble>();
-        listActions = new List<Action>();
+        listItens = new List<Item>();
 
         nodeButtonList = new List<GameObject>();
         interactionButtonList = new List<GameObject>();
-        actionButtonList = new List<GameObject>();
+        itenButtonList = new List<GameObject>();
 
         PopulateListNode();
     }
@@ -88,12 +88,12 @@ public class EditorController : MonoBehaviour
         }
     }
 
-    private void FlushListAction()
+    private void FlushListItem()
     {
-        for (int i = actionButtonList.Count - 1; i >= 0; i--)
+        for (int i = itenButtonList.Count - 1; i >= 0; i--)
         {
-            GameObject action = actionButtonList[i];
-            actionButtonList.RemoveAt(i);
+            GameObject action = itenButtonList[i];
+            itenButtonList.RemoveAt(i);
             Destroy(action);
         }
     }
@@ -136,22 +136,22 @@ public class EditorController : MonoBehaviour
         }
     }
 
-    private void PopulateListAction(Node node, int nodeIndex)
+    private void PopulateListItem(Node node, int nodeIndex)
     {
-        listActions = node.GetListActions();
+        listItens = node.GetListItens();
 
-        for (int i = 0; i < listActions.Count; i++)
+        for (int i = 0; i < listItens.Count; i++)
         {
             GameObject newObject = Instantiate(buttonsPrefabs[1], panelInteraction.transform);
-            ActionButton pointer = newObject.GetComponent<ActionButton>();
+            ItemButton pointer = newObject.GetComponent<ItemButton>();
 
             pointer.SetController(this);
             pointer.SetParentNode(listNodes[i]);
             pointer.SetParentIndex(nodeIndex);
-            pointer.SetAction(listActions[i]);
+            pointer.SetItem(listItens[i]);
             pointer.SetIndex(i);
 
-            actionButtonList.Add(newObject);
+            itenButtonList.Add(newObject);
         }
     }
 
@@ -189,9 +189,9 @@ public class EditorController : MonoBehaviour
         else if(param == 1)
         {
             FlushListInteraction();
-            FlushListAction();
+            FlushListItem();
             PopulateListInteraction(currentNode, currentNodeIndex);
-            PopulateListAction(currentNode, currentNodeIndex);
+            PopulateListItem(currentNode, currentNodeIndex);
         }
     }
 }

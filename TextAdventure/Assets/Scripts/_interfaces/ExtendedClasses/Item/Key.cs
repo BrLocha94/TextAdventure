@@ -42,6 +42,17 @@ public class Key : MonoBehaviour, Item
         return message;
     }
 
+    public bool CheckAction(string type)
+    {
+        for(int i = 0; i < itemUsabilities.Count; i++)
+        {
+            if (itemUsabilities[i].GetActionType().ToString().Equals(type))
+                return true;
+        }
+
+        return false;
+    }
+
     public string GetDescription()
     {
         return itemDescription;

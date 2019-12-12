@@ -7,4 +7,6 @@ public interface Item
     string ExecuteAction(ActionType action);
 
     List<Action> GetUsabilities();
+
+    bool CheckAction(string type);
 }

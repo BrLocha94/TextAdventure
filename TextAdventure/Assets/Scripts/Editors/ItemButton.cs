@@ -2,23 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActionButton : MonoBehaviour, ButtonEditor
+public class ItemButton : MonoBehaviour, ButtonEditor
 {
     private EditorController controller;
 
     private Node parentNode;
     private int parentIndex;
 
-    private Action action;
+    private Item item;
     private int index;
 
     private ButtonEditorType type;
 
-    public ActionButton(Node node, int nodeIndex, Action target, int targetIndex, EditorController controllerReference)
+    public ItemButton(Node node, int nodeIndex, Item target, int targetIndex, EditorController controllerReference)
     {
         parentNode = node;
         parentIndex = nodeIndex;
-        action = target;
+        item = target;
         index = targetIndex;
         type = ButtonEditorType.INTERACTABLE;
         controller = controllerReference;
@@ -59,14 +59,14 @@ public class ActionButton : MonoBehaviour, ButtonEditor
         return parentIndex;
     }
 
-    public void SetAction(Action newAction)
+    public void SetItem(Item newitem)
     {
-        action = newAction;
+        item = newitem;
     }
 
-    public Action GetAction()
+    public Item GetItem()
     {
-        return action;
+        return item;
     }
 
     public void SetIndex(int newIndex)
